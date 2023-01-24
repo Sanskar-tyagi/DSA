@@ -48,7 +48,7 @@ public class Addlast {
             }
             this.size++;
         }
-
+        
         int size() {
             return this.size;
         }
