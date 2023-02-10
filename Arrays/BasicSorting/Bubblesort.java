@@ -1,4 +1,4 @@
-package Arrays;
+package Arrays.BasicSorting;
 
 public class Bubblesort {
     static void bubbleSort(int[] arr) {

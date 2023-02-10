@@ -24,7 +24,7 @@ public class Main {
         p1.height = 2;
         p1.age = 69;
         p1.contactNum = 69696969;
-        p1.address = "DELHI SE HU BC";
+        p1.address = "DELHI";
     }
 }
 // Program Stack

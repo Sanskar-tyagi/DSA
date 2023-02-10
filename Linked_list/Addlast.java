@@ -36,19 +36,6 @@ public class Addlast {
             this.size++;// and increase the size of the linked list
         }
 
-        public void addFirst(int val) {
-            Node node = new Node();
-            node.data = val;
-            if (this.size == 0) {
-                this.head = node; // creates a new Node which is the starting of the Link list
-                this.tail = node;// Points to it self (to its own node)
-            } else {
-                node.next = this.head;
-                this.head = node;
-            }
-            this.size++;
-        }
-        
         int size() {
             return this.size;
         }
@@ -70,12 +57,10 @@ public class Addlast {
         Linklist li = new Linklist();
         // New memory is created in heap
         li.addLast(1);
-        li.display();
         li.addLast(2);
-        li.display();
-        li.addFirst(3);
-        li.display();
-        li.addFirst(4);
+        li.addLast(3);
+        li.addLast(4);
+        li.addLast(5);
         li.display();
 
     }

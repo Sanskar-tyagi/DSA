@@ -1,6 +1,6 @@
 package Linked_list;
 
-public class removeLast {
+public class RemoveFirst {
     public static class Node {
         int data;
         Node next;
@@ -22,24 +22,6 @@ public class removeLast {
                 size--;
             }
 
-        }
-
-        public void removeLast() {
-            if (this.size == 0) {
-                return;
-            } else if (this.size == 1) {
-                this.head = null;
-                this.tail = null;
-                this.size = 0;
-            } else {
-                Node pre = this.head;
-                while (pre.next.next != null) {
-                    pre = pre.next;
-                }
-                pre.next = null;
-                this.tail = pre;
-                this.size--;
-            }
         }
 
         int size() {
@@ -78,7 +60,7 @@ public class removeLast {
         li.addFirst(2);
         li.addFirst(23);
         li.display();
-        li.removeLast();
+        li.removeFirst();
         li.display();
     }
 }

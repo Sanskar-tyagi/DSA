@@ -1,4 +1,4 @@
-package Arrays;
+package Arrays.BasicSorting;
 
 public class Selectionsort {
     public static void selectionSort(int[] arr) {
