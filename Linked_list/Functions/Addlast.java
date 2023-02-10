@@ -1,4 +1,4 @@
-package Linked_list;
+package Linked_list.Functions;
 
 public class Addlast {
 

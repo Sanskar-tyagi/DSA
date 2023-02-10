@@ -1,4 +1,4 @@
-package Linked_list;
+package OOPS;
 
 public class Main {
 
