@@ -1,5 +1,8 @@
 package Linked_list;
 
+import java.io.*;
+import java.util.*;
+
 public class LLtoStack {
     // ? Note -> The intention is to use linked list functions to achieve the
     // ? purpose of a stack. All the functions should work in constant time.
@@ -14,84 +17,56 @@ public class LLtoStack {
     // ? "Stack underflow" and return -1.
     // ? 3.4. size -> Should return the number of elements available in the
     // ? stack
+    public static class LLToStackAdapter {
+        LinkedList<Integer> list;
 
-    public static class Node {
-        int Data;
-        Node next;
-    }
-
-    static class LinkList {
-        Node head;
-        Node tail;
-        int size;
-
-        int size() {
-            return this.size;
+        public LLToStackAdapter() {
+            list = new LinkedList<>();
         }
 
-        void push(int data) {
-            Node n1 = new Node();
-            n1.Data = data;
-            if (this.size == 0) {
-                this.head = n1;
-                this.tail = n1;
-                this.size++;
+        int size() {
+            return list.size(); // write your code here
+        }
+
+        void push(int val) {
+            list.addFirst(val); // write your code here
+        }
+
+        int pop() {
+            if (list.size() == 0) {
+                System.out.println("Stack underflow");
+                return -1;
             }
-            this.tail.next = n1;
-            this.tail = n1;
+            return list.removeFirst(); // write your code here
         }
 
         int top() {
-            Node n1 = new Node();
-            return n1.Data;
-        }
-
-        void display() {
-            Node ptr = this.head;
-            while (ptr != null) {
-                System.out.print(ptr.Data + "   ");
-                ptr = ptr.next;
+            if (list.size() == 0) {
+                System.out.println("Stack underflow");
+                return -1;
             }
-            System.out.println("");
-            System.out.println("");
+            return list.getFirst(); // write your code here
         }
 
     }
 
-    static void pop(LinkList li) {
-        if (li.size == 0) {
-            System.out.print("Poped element -->" + -1);
-        } else if (li.size == 1) {
-            int ans = li.tail.Data;
-            li.head = null;
-            li.tail = null;
-            li.size = 0;
-            System.out.print("Poped element -->" + ans);
-        } else {
-            Node n1 = new Node();
-            Node pre = new Node();
-            int d = li.tail.Data;
-            n1 = li.head.next;
-            pre = li.head;
-            while (n1.next != null) {
-                n1 = n1.next;
-                pre = pre.next;
-            }
-            li.tail = pre;
-            pre.next = null;
-            li.size--;
-            System.out.print("Poped element -->" + d);
-        }
-    }
-
-    public static void main(String[] args) {
-        LinkList li = new LinkList();
-        li.push(9);
-        li.push(10);
-        li.push(11);
-        li.push(12);
-        li.display();
-        pop(li);
-        li.display();
+    public static void main(String[] args) throws Exception {
+        LLToStackAdapter st = new LLToStackAdapter();
+        st.push(1);        System.out.println(st.list);
+        st.push(2);        System.out.println(st.list);
+        st.push(3);        System.out.println(st.list);
+        st.push(4);        System.out.println(st.list);
+        st.push(5);        System.out.println(st.list);
+        st.push(6);        System.out.println(st.list);
+        st.push(7);        System.out.println(st.list);
+        System.out.println(st.list);
+        System.out.println(st.pop());
+        System.out.println(st.pop());
+        System.out.println(st.pop());
+        System.out.println(st.pop());
+        System.out.println(st.pop());
+        System.out.println(st.pop());
+        System.out.println(st.pop());
+        System.out.println(st.pop());
     }
 }
