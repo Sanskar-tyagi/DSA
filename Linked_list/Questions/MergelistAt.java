@@ -1,8 +1,7 @@
 package Linked_list.Questions;
 
-import java.lang.annotation.Retention;
+public class MergelistAt {
 
-public class MergeTwoList {
     static class Node {
         Node next;
         int data;
@@ -43,19 +42,36 @@ public class MergeTwoList {
         L1.display();
     }
 
+    static void MergeListAt(int k, Linklist L1, Linklist L2) {
+        Node temp1 = L1.head;
+        while (k != 0) {
+            temp1 = temp1.next;
+            k--;
+        }
+        L2.tail.data = temp1.data;
+        L2.tail.next = temp1.next;
+        L2.display();
+        L1.display();
+    }
+
     public static void main(String[] args) {
         Linklist li = new Linklist();
         Linklist L2 = new Linklist();
-        L2.addLast(1);
-        L2.addLast(2);
-        L2.addLast(3);
-        li.addLast(0);
-        li.addLast(0);
+        li.addLast(1);
+        li.addLast(2);
+        li.addLast(3);
+        li.addLast(4);
+        L2.addLast(11);
+        L2.addLast(12);
+        L2.addLast(13);
+        L2.addLast(14);
+        L2.addLast(15);
         System.out.println("List 1");
         li.display();
         System.out.println("List 2");
         L2.display();
-        System.out.println("Merged");
-        mergeList(li, L2);
+        System.out.println("Merged L2 At 3rd index of L1");
+        MergeListAt(2, li, L2);
+
     }
 }
