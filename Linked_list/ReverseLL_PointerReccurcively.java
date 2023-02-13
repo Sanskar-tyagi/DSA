@@ -49,13 +49,16 @@ public class ReverseLL_PointerReccurcively {
                 return;
             }
             reversePRHelper(node.next);
-            node = node.next.next;
-            System.out.print(node.data);
+            node.next.next = node;
         }
 
         public void reversePR() {
             reversePRHelper(head);
-            System.out.println();
+            this.head.next = null;
+            Node temp = this.head;
+            this.head = this.tail;
+            this.tail = temp;
+            this.display();
         }
 
         public Node FindNodeAt(int tar) {
