@@ -41,7 +41,19 @@ public class DisplayLLRecursive {
         }
 
         private void displayReverseHelper(Node node) {
-            // write your code here
+            // * */ Approach
+
+            // * */ Here we try to use this helper method to display the data in reversed
+            // * */ order by repeatedly calling the function till it reaches the last end of
+            // * */ the node and then returning from it.
+            // * */ Which will lead us to Display firstly the Last Node's data and then
+            // * */ destroying the call-stack for the current call and leading to the next
+            // * */ call Generating the required output
+            if (node == null) {// Base case
+                return;
+            }
+            displayReverseHelper(node.next);// Recursive call
+            System.out.print(node.data + " ");// Printing of data from last called Node.
         }
 
         public void displayReverse() {
@@ -57,7 +69,11 @@ public class DisplayLLRecursive {
         li.addLast(2);
         li.addLast(3);
         li.display();
+        System.out.println();
+        System.out.println();
         System.out.println("Reversed");
+        System.out.println();
+        li.displayReverse();
 
     }
 }

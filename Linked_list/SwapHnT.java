@@ -1,11 +1,7 @@
 package Linked_list;
 
-public class ReverseLL_PointerIteratively {
-
-    // ? You are required to complete the body of reversePI function. The function
-    // ? should be an iterative function and should reverse the contents of linked
-    // ? list by changing the "next" property of nodes.
-
+public class SwapHnT {
+    // You need to write a function Swap such that it Swaps the Node Head and Tail
     public static class Node {
         int data;
         Node next;
@@ -42,22 +38,37 @@ public class ReverseLL_PointerIteratively {
             size++;
         }
 
-        public void reversePI() {
-            Node prev = null;
-            Node curr = this.head;
-            Node next = null;
-            while (curr != null) {
-                next = curr.next;
-                curr.next = prev;
-                prev = curr;
-                curr = next;
-            }
-            this.tail = this.head;
-            this.head = prev;
-            this.display();
-        }
-
         public void Swap() {
+            // Approach
+            // Let us assume we have a Link list as
+            // 4k(adress) 1(data)-->5k(adress) 2(data)-->6k(adress) 3(data)-->7k(adress)
+            // 4(data)-->null
+            // now when the first line executes
+            // N1= 7k(adress) 4(data)
+            // Helper=5k(adress) 2(data)
+            // Node getSecondlast = this.head;
+            // while (getSecondlast.next.next != null) {
+            // getSecondlast = getSecondlast.next;
+            // }
+            // We will store the 6k(adress) 3(data) Node to set the tail so that it does not
+            // leads to an infinte loop later.
+            // this.tail=4k(adress) 1(data)
+            // at this point the list should be
+            // 5k(adress) 2(data)-->6k(adress) 3(data)|NO LINK| 4k(adress)
+            // 1(data)-->5k(adress)
+            // 2(data)
+            // now we set the tail as null to break the initial link
+            // this.tail.next = null;
+            // 5k(adress) 2(data)-->6k(adress) 3(data) 4k(adress) 1(data)-->null
+            // and set the link between Secondlast node and tail
+            // 5k(adress) 2(data)-->6k(adress) 3(data)-->4k(adress) 1(data)-->null
+            // now this.head = N1;
+            // 7k(adress) 4(data) 5k(adress) 2(data)-->6k(adress) 3(data)-->4k(adress)
+            // 1(data)-->null
+            // after this this.head.next = Helper; line will establish the link and
+            // 7k(adress) 4(data)--> 5k(adress) 2(data)-->6k(adress) 3(data)-->4k(adress)
+            // 1(data)-->null
+
             Node N1 = this.tail;
             Node Helper = this.head.next;
             Node getSecondlast = this.head;
@@ -94,6 +105,6 @@ public class ReverseLL_PointerIteratively {
         li.addLast(3);
         li.display();
         System.out.println("Reversed");
-        li.reversePI();
+        li.Swap();
     }
 }

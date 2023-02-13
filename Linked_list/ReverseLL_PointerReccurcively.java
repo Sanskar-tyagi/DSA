@@ -42,11 +42,20 @@ public class ReverseLL_PointerReccurcively {
         }
 
         private void reversePRHelper(Node node) {
-
+            if (node == null) {
+                return;
+            }
+            if (node == tail) {
+                return;
+            }
+            reversePRHelper(node.next);
+            node = node.next.next;
+            System.out.print(node.data);
         }
 
         public void reversePR() {
-
+            reversePRHelper(head);
+            System.out.println();
         }
 
         public Node FindNodeAt(int tar) {
@@ -60,6 +69,17 @@ public class ReverseLL_PointerReccurcively {
             }
             return next;
         }
+    }
+
+    public static void main(String[] args) {
+        LinkedList li = new LinkedList();
+        li.addLast(0);
+        li.addLast(1);
+        li.addLast(2);
+        li.addLast(3);
+        li.display();
+        System.out.println("Reversed");
+        li.reversePR();
     }
 }
 
