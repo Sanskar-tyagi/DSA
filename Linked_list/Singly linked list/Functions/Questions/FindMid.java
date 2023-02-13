@@ -1,7 +1,4 @@
-package Linked_list.Questions;
-
-import Linked_list.Functions.removeLast;
-
+ 
 public class FindMid {
     // ? Define a function such that it should be an iterative function and should
     // ? return the mid of linked list. Also, make sure to not use size data member

@@ -1,6 +1,4 @@
-
-package Linked_list;
-
+ 
 import java.util.*;
 
 public class LLtoQueue {

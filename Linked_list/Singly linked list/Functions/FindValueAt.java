@@ -1,5 +1,4 @@
-package Linked_list.Functions;
-
+ 
 import java.util.*;
 import java.util.function.Supplier;
 

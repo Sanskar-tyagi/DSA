@@ -1,5 +1,4 @@
-package Linked_list;
-
+ 
 import java.io.*;
 import java.util.*;
 

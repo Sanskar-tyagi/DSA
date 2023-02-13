@@ -1,4 +1,4 @@
-package Linked_list;
+ 
 
 public class LLtoStackW {
     // ? Note -> The intention is to use linked list functions to achieve the

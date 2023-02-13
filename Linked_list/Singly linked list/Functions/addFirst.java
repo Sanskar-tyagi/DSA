@@ -1,5 +1,4 @@
-package Linked_list.Functions;
-
+ 
 public class addFirst {
     public static class Node {
         int data;
