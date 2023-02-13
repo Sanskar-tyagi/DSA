@@ -52,18 +52,15 @@ public class LLtoStack {
 
     public static void main(String[] args) throws Exception {
         LLToStackAdapter st = new LLToStackAdapter();
-        st.push(1);        System.out.println(st.list);
-        st.push(2);        System.out.println(st.list);
-        st.push(3);        System.out.println(st.list);
-        st.push(4);        System.out.println(st.list);
-        st.push(5);        System.out.println(st.list);
-        st.push(6);        System.out.println(st.list);
-        st.push(7);        System.out.println(st.list);
+        st.push(1);
         System.out.println(st.list);
-        System.out.println(st.pop());
-        System.out.println(st.pop());
-        System.out.println(st.pop());
-        System.out.println(st.pop());
+        st.push(2);
+        System.out.println(st.list);
+        st.push(3);
+        System.out.println(st.list);
+        st.push(4);
+        System.out.println(st.list);
+        System.out.println(st.list);
         System.out.println(st.pop());
         System.out.println(st.pop());
         System.out.println(st.pop());
