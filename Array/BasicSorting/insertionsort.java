@@ -1,4 +1,4 @@
-package Arrays.BasicSorting;
+package Array.BasicSorting;
 
 public class insertionsort {
     public static void insertionSort(int array[]) {

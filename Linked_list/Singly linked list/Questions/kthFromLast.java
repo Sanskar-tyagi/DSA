@@ -1,4 +1,3 @@
-package Linked_list.Questions;
 
 public class kthFromLast {
     // ? kthFromLast function.

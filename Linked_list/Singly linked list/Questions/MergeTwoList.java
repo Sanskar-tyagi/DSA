@@ -1,4 +1,3 @@
-package Linked_list.Questions;
 
 import java.lang.annotation.Retention;
 
