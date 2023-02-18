@@ -3,7 +3,7 @@ package Array.Algo;
 import java.util.*;
 
 class kadane {
-
+    // Q Link -->https://leetcode.com/problems/maximum-subarray/description/
     public static void main() {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

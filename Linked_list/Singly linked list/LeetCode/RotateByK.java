@@ -37,47 +37,30 @@ public class RotateByK {
             System.out.println("");
         }
 
-        public Node reverseBetween(Node head, int left, int right) {
-            Node dummy = new Node();
-            dummy.next = head;
-            Node prev = dummy;
-
-            for (int i = 0; i < left - 1; i++)
-                prev = prev.next;
-            Node curr = prev.next;
-
-            for (int i = 0; i < right - left; i++) {
-                Node forw = curr.next;
-                curr.next = forw.next;
-                forw.next = prev.next;
-                prev.next = forw;
-            }
-            return dummy.next;
-        }
-
         public Node rotateRight(Node head, int k) {
-            if (head == null || head.next == null) {
+            if (head == null || head.next == null || k == 0) {
                 return head;
             }
-            int len = this.size;
-            k = k % len;
-            if (k == 0)
+            int size = 1;
+            Node s = head;
+            while (s.next != null) {
+                s = s.next;
+                size++;
+            }
+            int r = k % size;
+            if (r == 0) {
                 return head;
-
-            Node slow = head, fast = head;
-            while (k != 0) {
-                fast = fast.next;
-                k--;
             }
-            while (fast.next != null) {
-                fast = fast.next;
-                slow = slow.next;
+            Node temp = head;
+            Node slow = null;
+            for (int i = 0; i < size - r; i++) {
+                slow = temp;
+                temp = temp.next;
             }
-
-            Node nbr = slow.next;
             slow.next = null;
-            fast.next = head;
-            return nbr;
+            s.next = head;
+            head = temp;
+            return head;
         }
     }
 
@@ -91,7 +74,7 @@ public class RotateByK {
         li.addLast(6);
         li.addLast(7);
         li.display();
-        li.head = li.reverseBetween(li.head, 3, li.size);
+        li.head = li.rotateRight(li.head, 3);
         li.display();
     }
 }
