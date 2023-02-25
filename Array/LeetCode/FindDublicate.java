@@ -1,5 +1,7 @@
 package Array.LeetCode;
 
+import java.util.*;;
+
 public class FindDublicate {
     // [1,3,4,2,2]
     // i=0 index= 0; -1
@@ -17,5 +19,22 @@ public class FindDublicate {
             nums[index] = -nums[index];
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int n = scanner.nextInt();
+
+        int[] nums = new int[n];
+
+        System.out.println("Enter the elements of the array: ");
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        int result = findDuplicate(nums);
+        System.out.println("The duplicate element in the array is: " + result);
     }
 }
