@@ -10,6 +10,6 @@ public class MergeOverlappingIntervals {
     }
 
     void merge(int[][] arr) {
-        ArrayList<Integer> li = new ArrayList<>(); 
+        ArrayList<Integer> li = new ArrayList<>();
     }
 }
