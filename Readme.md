@@ -10,8 +10,17 @@ Welcome to the Learn DSA repository! The main aim of this repository is to showc
 
 ## Motivation
 
+#### Why so many??
+
+##### Cause Quantity is fun! :9
+
+#### Why so Many SubFolders and Categories??
+
+##### Cause Quality is Key! :3
+
 Data structures and algorithms form the backbone of computer science and software engineering. Understanding and being able to implement these concepts effectively is crucial for a software developer to write efficient and optimized code.
 
+> Quantity is fun,Quality is Key!
 > This repository serves as a way for me
 > to keep track of my progress and demonstrate my
 > commitment & effort to improve my skills in DSA.

@@ -5,19 +5,12 @@ import java.util.*;
 public class BestTimetoBuyandSellStockII {
 
     public static int maxProfit(int[] nums) {
-        int min = nums[0], totalProfit = 0;
-        int pos = 1, max = -1;
-        while (pos < nums.length) {
-            if (nums[pos] < min)
-                min = nums[pos];
-            while (pos < nums.length && max < nums[pos])
-                max = nums[pos++];
+        int totalProfit = 0;
+        for (int i = 1; i < nums.length ; i++) {
 
-            totalProfit += max - min;
-            max = -1;
-            if (pos < nums.length)
-                min = nums[pos];
-            pos++;
+            if (nums[i - 1] > nums[i]) {
+                totalProfit += nums[i] - nums[i - 1];
+            }
         }
 
         return totalProfit;

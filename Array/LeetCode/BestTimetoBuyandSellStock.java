@@ -3,6 +3,17 @@ package Array.LeetCode;
 import java.util.*;
 
 public class BestTimetoBuyandSellStock {
+    // ! Q-->https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+
+    // You are given an array prices where prices[i] is the price of a given stock
+    // on the ith day.
+
+    // You want to maximize your profit by choosing a single day to buy one stock
+    // and choosing a different day in the future to sell that stock.
+
+    // Return the maximum profit you can achieve from this transaction. If you
+    // cannot achieve any profit, return 0.
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the length of the input array: ");
@@ -16,35 +27,15 @@ public class BestTimetoBuyandSellStock {
         System.out.println("Maximum Profit: " + maxProfit);
     }
 
-    public static int maxProfit(int[] arr) {
-
-        int minL[] = new int[arr.length];
-        int maxR[] = new int[arr.length];
-
-        minL[0] = arr[0];
-
-        for (int i = 1; i < arr.length; i++) {
-            if (minL[i - 1] > arr[i])
-                minL[i] = arr[i];
-            else
-                minL[i] = minL[i - 1];
+    public static int maxProfit(int[] prices) {
+        int min = Integer.MAX_VALUE;
+        int max_pro = 0;// [7,1,5,3,6,4]
+        for (int i : prices) {
+            if (min > prices[i]) {
+                min = prices[i];
+            }
+            max_pro = Math.max(max_pro, prices[i] - min);
         }
-        maxR[arr.length - 1] = arr[arr.length - 1];
-        for (int i = arr.length - 2; i >= 0; i--) {
-            if (arr[i] > maxR[i + 1])
-                maxR[i] = arr[i];
-            else
-                maxR[i] = maxR[i + 1];
-        }
-
-        int max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            int diff = maxR[i] - minL[i];
-            if (max < diff)
-                max = diff;
-        }
-
-        return max;
+        return max_pro;
     }
-
 }
