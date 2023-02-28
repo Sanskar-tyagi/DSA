@@ -1,90 +1,68 @@
 package Array.Algo.DivideNcon;
 
+import java.util.*;;
+
 public class MergeSort {
-    void merge(int arr[], int l, int m, int r) {
-        // Find sizes of two subarrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
-
-        /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-
-        /* Copy data to temp arrays */
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
-
-        /* Merge the temp arrays */
-
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
-
-        // Initial index of merged subarray array
-        int k = l;
-        while (i < n1 && j < n2) {
-            
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
-                i++;
-            } else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter N");
+        int n = sc.nextInt();
+        System.out.println("Enter M");
+        int m = sc.nextInt();
+        int arr[] = new int[n];
+        int nums[] = new int[m];
+        System.out.println("Enter Arr 1");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
-
-        /* Copy remaining elements of L[] if any */
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
+        System.out.println("Enter nums");
+        for (int j = 0; j < m; j++) {
+            nums[j] = sc.nextInt();
         }
-
-        /* Copy remaining elements of R[] if any */
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
-        }
+        display(arr);
+        display(nums);
+        Arrays.sort(arr);
+        Arrays.sort(nums);
+        int ans[] = MergeArr(arr, nums);
+        display(ans);
     }
 
-    // Main function that sorts arr[l..r] using
-    // merge()
-    void sort(int arr[], int l, int r) {
-        if (l < r) {
-            // Find the middle point
-            int m = l + (r - l) / 2;
-
-            // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
-
-            // Merge the sorted halves
-            merge(arr, l, m, r);
+    static void display(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + "   ");
         }
-    }
-
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
         System.out.println();
     }
 
-    // Driver code
-    public static void main(String args[]) {
-        int arr[] = { 12, 11, 13, 5, 6, 7 };
+    static int[] MergeArr(int[] nums1, int[] nums2) {
+        int p1 = 0;
+        int p2 = 0;
+        int idx = 0;
+        int[] ans = new int[nums1.length + nums2.length];
+        while (idx < ans.length) {
+            int val1 = p1 < nums1.length ? nums1[p1] : Integer.MAX_VALUE;
+            int val2 = p2 < nums2.length ? nums2[p2] : Integer.MAX_VALUE;
+            if (val1 < val2) {
+                ans[idx] = val1;
+                p1++;
+            } else {
+                ans[idx] = val2;
+                p2++;
+            }
+            idx++;
+        }
+        return ans;
+    }
 
-        System.out.println("Given Array");
-        printArray(arr);
-
-        MergeSort ob = new MergeSort();
-        ob.sort(arr, 0, arr.length - 1);
-
-        System.out.println("\nSorted array");
-        printArray(arr);
+    static int[] sort(int arr[], int l, int r) {
+        if (l == r) {
+            int base[] = new int[1];
+            base[0] = arr[l];
+            return base;
+        }
+        int mid = l + r / 2;
+        int left[] = sort(arr, l, mid);
+        int right[] = sort(arr, mid + 1, r);
+        return MergeArr(left, right);
     }
 }

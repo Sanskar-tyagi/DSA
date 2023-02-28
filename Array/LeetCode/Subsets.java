@@ -36,7 +36,7 @@ public class Subsets {
             nums[i] = sc.nextInt();
         }
         List<List<Integer>> li = new ArrayList<>();
-        li = subsets(nums);
+        li = subsets(nums); 
         display(li);
     }
 
