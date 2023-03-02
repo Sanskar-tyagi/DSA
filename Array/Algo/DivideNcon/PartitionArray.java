@@ -42,7 +42,6 @@ public class PartitionArray {
         }
         swapall(arr, 0, l, k - 1);
         swapall(arr, k + 1, r, arr.length);
-        int sum = 0;
         System.out.println("rr");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
