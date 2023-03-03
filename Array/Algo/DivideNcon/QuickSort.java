@@ -2,22 +2,25 @@ package Array.Algo.DivideNcon;
 
 public class QuickSort {
 
-    public static void quickSort(int arr[], int lo, int hi) {
-        // if(lo > hi) return; // invalid range
-        // if(hi == lo) return; // because 1 ele array is always sorted
+    public void quickSort(int[] arr, int lo, int hi) {
+        if (lo >= hi) {
+            // Invalid range or 1 element array
+            return;
+        }
 
+        int mid = (lo + hi) / 2;
+        swap(arr, mid, hi);
         int pivot = arr[hi];
-        int pidx = getPivotIndexAfterPartition(arr, pivot, lo, hi);
+        // Partition the array around the pivot
+        int pidx = partition(arr, pivot, lo, hi);
 
-        if (lo < pidx - 1)
-            quickSort(arr, lo, pidx - 1);
-        if (pidx + 1 < hi)
-            quickSort(arr, pidx + 1, hi);
+        // Recursively sort left and right subarrays
+        quickSort(arr, lo, pidx - 1);
+        quickSort(arr, pidx + 1, hi);
     }
 
-    public static int getPivotIndexAfterPartition(int[] arr, int pivot, int lo, int hi) {
+    public int partition(int[] arr, int pivot, int lo, int hi) {
         int i = lo, j = lo;
-
         while (j <= hi) {
             if (arr[j] <= pivot) {
                 swap(arr, j, i);
@@ -27,12 +30,10 @@ public class QuickSort {
                 j++;
             }
         }
-
         return i - 1;
     }
 
-    public static void swap(int[] arr, int i, int j) {
-        System.out.println("Swapping " + arr[i] + " and " + arr[j]);
+    public void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
