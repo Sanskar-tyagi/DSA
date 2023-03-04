@@ -1,5 +1,7 @@
 package Array.LeetCode;
 
+import java.util.Scanner;
+
 public class StringCompression {
     // Given an array of characters chars, compress it using the following
     // algorithm:
@@ -24,16 +26,43 @@ public class StringCompression {
     // ? How do I solve this in-place (for constant space complexity)?
     // ? To tackle this issue, we will use a two pointers approach.
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter N");
+        int n = sc.nextInt();
+        char ch[] = new char[n];
+        System.out.println("Enter Char");
+        for (int i = 0; i < n; i++) {
+            ch[i] = sc.next().charAt(0);
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.print(ch[i]);
+        }
+        System.out.println();
+        int a = compress(ch);
+        System.out.println("A" + a);
+        for (int i = 0; i < n; i++) {
+            System.out.print(ch[i]);
+        }
 
     }
 
-    public static int compress(char chars[]) {
-            int curr=0, next=0;
-        
-            
+    public static int compress(char[] chars) {
+        int index = 0;
+        int i = 0;
+        while (i < chars.length) {
+            int j = i;
+            while (j < chars.length && chars[j] == chars[i])
+                j++;
+            chars[index++] = chars[i];
+            if (j - i > 1) {
+                String count = j - i + "";
+                for (char c : count.toCharArray()) {
+                    chars[index++] = c;
+                }
+            }
+            i = j;
+        }
+        return index;
 
-
-
-        return chars.length;
     }
 }
