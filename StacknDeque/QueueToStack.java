@@ -3,6 +3,8 @@ package StacknDeque;
 import java.util.*;
 
 public class QueueToStack {
+    // ! Implementing Stack using the Inbuit Queue in java
+
     Queue<Integer> mainQ;
     Queue<Integer> helperQ;
 
@@ -52,3 +54,4 @@ public class QueueToStack {
         return val;
     }
 }
+
