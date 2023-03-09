@@ -2,7 +2,8 @@ package Tree.GenericTree;
 
 import java.util.*;;
 
-public class LevelOrderGT {
+public class LevelOrderLineWise {
+
     // 1. You are given a partially written GenericTree class.
     // 2. You are required to complete the body of levelorder function. The function
     // is expected to visit every node in "levelorder fashion". Please check the
@@ -108,16 +109,25 @@ public class LevelOrderGT {
         return 1 + maxChildHeight;
     }
 
-    public static void levelOrder(Node root) {
-        Queue<Node> queue = new ArrayDeque<>();
-        queue.add(root);
-        while (queue.size() > 0) {
-            Node rem = queue.remove();
+    public static void levelOrderLinewise(Node node) {
+        Queue<Node> mq = new ArrayDeque<>();
+        Queue<Node> hq = new ArrayDeque<>();
+        mq.add(node);
+
+        while (mq.size() > 0) {
+            Node rem = mq.remove();
             System.out.print(rem.data + " ");
+
             for (Node child : rem.children) {
-                queue.add(child);
+                hq.add(child);
+            }
+
+            if (mq.size() == 0) {
+                System.out.println();
+                Queue<Node> tq = mq;
+                mq = hq;
+                hq = tq;
             }
         }
-        System.out.println(".");
     }
 }
