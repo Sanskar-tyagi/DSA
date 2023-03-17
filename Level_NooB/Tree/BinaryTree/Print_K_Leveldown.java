@@ -1,9 +1,9 @@
 package Tree.BinaryTree;
-
+ 
 import java.util.*;
 
-public class Find_In_Tree {
-    // Motive-> To check if the given input is in the binary tree.
+public class Print_K_Leveldown {
+
     static class Node {
         Node left;
         Node right;
@@ -71,15 +71,63 @@ public class Find_In_Tree {
         return false;
     }
 
+    static void Print_K_Level(Node root, int k) {
+        int idx = 0;
+        Queue<Node> main = new ArrayDeque<>();
+        Queue<Node> helper = new ArrayDeque<>();
+        main.add(root);
+        while (main.size() > 0) {
+            Node pr = main.remove();
+            if (idx >= k) {
+                System.out.println(pr.data);
+            }
+            if (pr.left != null) {
+                helper.add(pr.left);
+            }
+            if (pr.right != null) {
+                helper.add(pr.right);
+            }
+            if (main.size() == 0) {
+                Queue<Node> temp = main;
+                main = helper;
+                helper = temp;
+                idx++;
+            }
+        }
+    }
+
+    static void Print_K_LevelReccursively(Node root, int k) {
+        if (root == null) {
+            return;
+        }
+        if (k <= 0) {
+            System.out.println(root.data);
+            return;
+        }
+        Print_K_LevelReccursively(root.left, k - 1);
+        Print_K_LevelReccursively(root.right, k - 1);
+    }
+
+    static void display(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.left == null ? "." : node.left.data);
+        System.out.print(" <- " + node.data + " -> ");
+        System.out.print(node.right == null ? "." : node.right.data);
+        System.out.println();
+        display(node.left);
+        display(node.right);
+    }
+
     public static void main(String[] args) {
-        Integer arr[] = { 10, 20, 40, 60, null, null, null, 50, 70, null, null, 80, null, null, 30, null, 90, 100,
-                null,
-                null, null };
+        Integer arr[] = { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null,
+                null };
         Node root = construct(arr);
         Scanner sc = new Scanner(System.in);
+        display(root);
         System.out.println("Enter the num to find");
         int k = sc.nextInt();
-        boolean ans = findK(k, root);
-        System.out.println(ans);
+        Print_K_LevelReccursively(root, k);
     }
 }

@@ -2,8 +2,7 @@ package Tree.BinaryTree;
 
 import java.util.*;
 
-public class Find_In_Tree {
-    // Motive-> To check if the given input is in the binary tree.
+public class RemoveLeaves {
     static class Node {
         Node left;
         Node right;
@@ -57,29 +56,37 @@ public class Find_In_Tree {
         return root;
     }
 
-    static boolean findK(int k, Node root) {
-        if (root == null) {
-            return false;
+    static void display(Node node) {
+        if (node == null) {
+            return;
         }
-        if (root.data == k) {
-            return true;
-        }
-        if (findK(k, root.left) || findK(k, root.right)) {
-            return true;
-        }
+        System.out.print(node.left == null ? "." : node.left.data);
+        System.out.print(" <- " + node.data + " -> ");
+        System.out.print(node.right == null ? "." : node.right.data);
+        System.out.println();
+        display(node.left);
+        display(node.right);
+    }
 
-        return false;
+    public static Node removeLeave(Node root) {
+        if (root == null) {
+            return null;
+        }
+        if (root.left == null && root.right == null) {
+            return null;
+        }
+        root.left = removeLeave(root.left);
+        root.right = removeLeave(root.right);
+        return root;
     }
 
     public static void main(String[] args) {
-        Integer arr[] = { 10, 20, 40, 60, null, null, null, 50, 70, null, null, 80, null, null, 30, null, 90, 100,
-                null,
-                null, null };
+        Integer arr[] = { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null,
+                null };
         Node root = construct(arr);
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the num to find");
-        int k = sc.nextInt();
-        boolean ans = findK(k, root);
-        System.out.println(ans);
+        display(root);
+        removeLeave(root);
+        display(root);
+
     }
 }

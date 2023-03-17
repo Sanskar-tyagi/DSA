@@ -2,8 +2,7 @@ package Tree.BinaryTree;
 
 import java.util.*;
 
-public class Find_In_Tree {
-    // Motive-> To check if the given input is in the binary tree.
+public class NodetoRootpath {
     static class Node {
         Node left;
         Node right;
@@ -68,6 +67,27 @@ public class Find_In_Tree {
             return true;
         }
 
+        return false;
+    }
+
+    static List<Integer> getPath(Node node, int k) {
+        List<Integer> path = new ArrayList<>();
+        getPathHelper(node, k, path);
+        return path;
+    }
+
+    static boolean getPathHelper(Node node, int k, List<Integer> path) {
+        if (node == null) {
+            return false;
+        }
+        if (node.data == k) {
+            path.add(node.data);
+            return true;
+        }
+        if (getPathHelper(node.left, k, path) || getPathHelper(node.right, k, path)) {
+            path.add(node.data);
+            return true;
+        }
         return false;
     }
 
