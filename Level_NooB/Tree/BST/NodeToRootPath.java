@@ -1,8 +1,8 @@
 package Tree.BST;
 
-import java.util.*; 
+import java.util.*;
 
-public class LCA {
+public class NodeToRootPath {
     static class Node {
         Node left;
         Node right;
@@ -43,12 +43,14 @@ public class LCA {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Number to Search in Bst");
         int s = sc.nextInt();
-        int s2 = sc.nextInt();
-        int arr[] = { 10, 22, 3, 211, 4, 45, 21, 1, 32, 44, 212, 110 };
+        int arr[] = { 10, 22, 3, 211, 4, 45, 21, 1 };
         Arrays.sort(arr);
         Node root = construct(arr, 0, arr.length - 1);
         display(root);
-        System.out.println(getLCA(s, s2, root));
+        List<Integer> ans = getPath(root, s);
+        for (Integer child : ans) {
+            System.out.println(child);
+        }
     }
 
     public static List<Integer> getPath(Node root, int k) {
@@ -65,15 +67,5 @@ public class LCA {
             }
         }
         return li;
-    }
-
-    public static int getLCA(int k, int r, Node root) {
-        List<Integer> Fl = getPath(root, k);
-        List<Integer> Fx = getPath(root, r);
-        int i = 0;
-        while (Fl.get(i) == Fx.get(i)) {
-            i++;
-        }
-        return Fl.get(i - 1);
     }
 }

@@ -59,8 +59,8 @@ public class Main {
         for (int i = 0; i < li.size(); i++) {
             arr[i] = li.get(i);
         }
+        Arrays.sort(arr);
         Node root = construct(arr, 0, arr.length - 1);
         display(root);
-
     }
 }

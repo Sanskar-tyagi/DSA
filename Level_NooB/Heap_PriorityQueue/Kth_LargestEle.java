@@ -1,8 +1,7 @@
-package Tree.BST;
+package Heap_PriorityQueue;
 
-import java.util.*; 
-
-public class LCA {
+import java.util.*;;
+public class Kth_LargestEle {
     static class Node {
         Node left;
         Node right;
@@ -48,32 +47,6 @@ public class LCA {
         Arrays.sort(arr);
         Node root = construct(arr, 0, arr.length - 1);
         display(root);
-        System.out.println(getLCA(s, s2, root));
-    }
 
-    public static List<Integer> getPath(Node root, int k) {
-        if (root == null) {
-            return new ArrayList<Integer>();
-        }
-        List<Integer> li = new ArrayList<>();
-        while (root != null) {
-            li.add(root.data);
-            if (k > root.data) {
-                root = root.right;
-            } else {
-                root = root.left;
-            }
-        }
-        return li;
-    }
-
-    public static int getLCA(int k, int r, Node root) {
-        List<Integer> Fl = getPath(root, k);
-        List<Integer> Fx = getPath(root, r);
-        int i = 0;
-        while (Fl.get(i) == Fx.get(i)) {
-            i++;
-        }
-        return Fl.get(i - 1);
     }
 }
