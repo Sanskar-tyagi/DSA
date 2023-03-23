@@ -51,10 +51,16 @@ public class AddNewNode {
 
     }
 
-    public static void AddNode(int k) {
-        
-
-
+    public static Node AddNode(int k, Node root) {
+        if (root == null) {
+            return new Node(k, null, null);
+        }
+        if (root.data > k) {
+            AddNode(k, root.left);
+        }
+        if (root.data < k) {
+            AddNode(k, root.right);
+        }
+        return root;
     }
-
 }
