@@ -28,18 +28,4 @@ public class Main {
         }
     }
 
-    public static boolean isValid(ArrayList<Edge>[] graph, int src, int des, boolean arr[]) {
-        if (des == src) {
-            return true;
-        }
-        arr[src] = true;
-        for (Edge e : graph[src]) {
-            if (!arr[e.nbr]) {
-                if (isValid(graph, e.nbr, des, arr)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }

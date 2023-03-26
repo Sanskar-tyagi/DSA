@@ -2,8 +2,7 @@ package Graphs;
 
 import java.util.*;
 
-public class isValidPath {
-
+public class FindAllPaths {
     public static class Edge {
         int src, nbr;
 
@@ -36,18 +35,17 @@ public class isValidPath {
         }
     }
 
-    public static boolean isValid(ArrayList<Edge>[] graph, int src, int des, boolean arr[]) {
+    public static void isPath(ArrayList<Edge>[] graph, int src, int des, boolean arr[], String ansf) {
         if (des == src) {
-            return true;
+            System.out.println(ansf);
+            return;
         }
         arr[src] = true;
         for (Edge e : graph[src]) {
             if (!arr[e.nbr]) {
-                if (isValid(graph, e.nbr, des, arr)) {
-                    return true;
-                }
+                isPath(graph, src, des, arr, ansf + e.nbr);
             }
         }
-        return false;
+        arr[src] = false;
     }
 }
