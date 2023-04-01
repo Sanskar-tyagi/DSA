@@ -2,7 +2,7 @@
 
 ## ~~The Data Structures and Algorithms.~~
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg)](https://travis-ci.org/joemccann/dillinger)
 
 Welcome to the Learn DSA repository! The main aim of this repository is to showcase my consistent learning journey in the field of data structures and algorithms (DSA)
 
