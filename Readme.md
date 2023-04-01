@@ -20,7 +20,12 @@ Welcome to the Learn DSA repository! The main aim of this repository is to showc
 
 Data structures and algorithms form the backbone of computer science and software engineering. Understanding and being able to implement these concepts effectively is crucial for a software developer to write efficient and optimized code.
 
-> Quantity is fun,Quality is Key!
+### But More Importantly
+
+> Consistency is key, but missing a day is not something to be ashamed of.
+> Life happens and priorities shift.
+> Your new coding routine isn't ruined forever.
+> Keep going and try again!
 > This repository serves as a way for me
 > to keep track of my progress and demonstrate my
 > commitment & effort to improve my skills in DSA.

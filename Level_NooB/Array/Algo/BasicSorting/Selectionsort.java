@@ -1,4 +1,4 @@
-package Array.BasicSorting;
+package Array.Algo.BasicSorting;
 
 public class Selectionsort {
     public static void selectionSort(int[] arr) {
