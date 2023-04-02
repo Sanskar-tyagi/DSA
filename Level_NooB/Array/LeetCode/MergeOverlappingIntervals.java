@@ -30,6 +30,6 @@ public class MergeOverlappingIntervals {
         }
 
         li.add(new int[] { start, end });
-        return li.toArray(new int[li.size()][2]); 
+        return li.toArray(new int[li.size()][2]);
     }
 }
