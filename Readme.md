@@ -20,7 +20,7 @@ Welcome to the Learn DSA repository! The main aim of this repository is to showc
 
 Data structures and algorithms form the backbone of computer science and software engineering. Understanding and being able to implement these concepts effectively is crucial for a software developer to write efficient and optimized code.
 
-### But More Importantly
+### & More Importantly
 
 > Consistency is key, but missing a day is not something to be ashamed of.
 > Life happens and priorities shift.
