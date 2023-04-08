@@ -24,7 +24,7 @@ public class ClimbStairsWithvarJumps {
         Scanner sc = new Scanner(System.in);
         int arr[] = { 3, 3, 0, 2, 1, 2, 4, 2, 0, 0 };
         int n = arr.length;
-        System.out.println(getWithMemo(arr, 0, new int[n + 1]));
+        System.out.println(getPathwithMEMO(0, arr, new int[n + 1]));
 
     }
 
@@ -40,42 +40,6 @@ public class ClimbStairsWithvarJumps {
                 return 0;
             }
         }
-        return paths;
-    }
-
-    static int getpaths(int arr[], int n) {
-        if (n == arr.length) {
-            return 1;
-        }
-        if (n > arr.length) {
-            return 0;
-        }
-        int paths = 0;
-        for (int i = 0; i < arr[n]; i++) {
-            if ((n + i) <= arr.length) {
-                getPath(n + i, arr);
-            } else
-                return 0;
-        }
-        return paths;
-    }
-
-    static int getWithMemo(int arr[], int n, int memo[]) {
-        if (n == arr.length) {
-            return memo[n] = 1;
-        }
-        if (memo[n] != 0) {
-            return memo[n];
-        }
-        int paths = 0;
-        for (int i = 1; i <= arr[n]; i++) {
-            if ((n + i) <= arr.length) {
-                paths += getWithMemo(arr, n + i, memo);
-            } else {
-                return 0;
-            }
-        }
-        memo[n] = paths;
         return paths;
     }
 
@@ -96,5 +60,10 @@ public class ClimbStairsWithvarJumps {
         }
         memo[n] = paths;
         return paths;
+    }
+
+    static int getPathWithTabulation(int arr[]) {
+        int memo[] = new int[arr.length + 1];
+        
     }
 }
