@@ -1,5 +1,4 @@
 
-
 public class AddAt {
     public static class Node {
         int data;
