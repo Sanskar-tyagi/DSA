@@ -1,4 +1,5 @@
 package Recursion_1.backtracking;
+import java.util.*;
 
 // Q. we are given a matrix of m X n in which the array is filled with
 // zeros and ones . The 1's are the boundry and the 0's are the accessible
@@ -6,7 +7,6 @@ package Recursion_1.backtracking;
 // from the top most left to the bottom most right of the array. The path traced
 // should be in the manner T L D R -which is Top Left Down Right ,respectively
 
-import java.util.*;
 
 // Firstly to approch the code draw down the possiblities and answer
 // Then Find out the cases in which the answer should'nt be printed

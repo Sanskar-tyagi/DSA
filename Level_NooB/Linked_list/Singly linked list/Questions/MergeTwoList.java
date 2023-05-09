@@ -1,6 +1,4 @@
 
-import java.lang.annotation.Retention;
-
 public class MergeTwoList {
     static class Node {
         Node next;
