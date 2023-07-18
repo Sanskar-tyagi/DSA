@@ -1,5 +1,7 @@
 package Interview_Practice;
 
-public class LongestSubarrayEqualZerosOne {
+import java.util.HashMap;
 
+public class LongestSubarrayEqualZerosOne {
+    HashMap<Integer, Integer> map = new HashMap<>;
 }
